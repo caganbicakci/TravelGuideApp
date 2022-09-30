@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             navHostFragment = supportFragmentManager.findFragmentById(fragmentContainerView.id) as NavHostFragment
             NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.navController)
+            bottomNavigationView.itemIconTintList = null
         }
 
     }
