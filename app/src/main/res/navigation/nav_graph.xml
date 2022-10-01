@@ -6,23 +6,23 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.caganbicakci.travelguideapp.presentation.HomeFragment"
+        android:name="com.caganbicakci.travelguideapp.presentation.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home"
         />
     <fragment
         android:id="@+id/guideFragment"
-        android:name="com.caganbicakci.travelguideapp.presentation.GuideFragment"
+        android:name="com.caganbicakci.travelguideapp.presentation.guide.GuideFragment"
         android:label="GuideFragment"
         tools:layout="@layout/fragment_guide"/>
     <fragment
         android:id="@+id/tripFragment"
-        android:name="com.caganbicakci.travelguideapp.presentation.TripFragment"
+        android:name="com.caganbicakci.travelguideapp.presentation.trip.TripFragment"
         android:label="TripFragment"
         tools:layout="@layout/fragment_trip"/>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.caganbicakci.travelguideapp.presentation.SearchFragment"
+        android:name="com.caganbicakci.travelguideapp.presentation.search.SearchFragment"
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search"/>
 </navigation>

@@ -1,4 +1,4 @@
-package com.caganbicakci.travelguideapp.presentation
+package com.caganbicakci.travelguideapp.presentation.search
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
