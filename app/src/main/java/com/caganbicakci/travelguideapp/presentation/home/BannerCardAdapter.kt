@@ -1,4 +1,4 @@
-package com.caganbicakci.travelguideapp.domain.adapter
+package com.caganbicakci.travelguideapp.presentation.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

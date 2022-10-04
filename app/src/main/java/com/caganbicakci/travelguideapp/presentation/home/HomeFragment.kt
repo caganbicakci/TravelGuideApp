@@ -6,13 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caganbicakci.travelguideapp.BR
 import com.caganbicakci.travelguideapp.databinding.FragmentHomeBinding
-import com.caganbicakci.travelguideapp.domain.adapter.BannerCardAdapter
-import com.caganbicakci.travelguideapp.domain.adapter.DealsCardAdapter
-import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

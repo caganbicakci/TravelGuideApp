@@ -1,4 +1,4 @@
-package com.caganbicakci.travelguideapp.domain.adapter
+package com.caganbicakci.travelguideapp.presentation.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,7 +10,15 @@ import com.caganbicakci.travelguideapp.R
 import com.caganbicakci.travelguideapp.databinding.ItemDealsCardBinding
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
 
-class DealsCardAdapter(private val destinationList: List<TravelModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class DealsCardAdapter(private val travelList: List<TravelModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private var allTravels : List<TravelModel> = listOf()
+    private var categoricalTravelList : List<TravelModel> = listOf()
+
+    fun setData(data: List<TravelModel>) {
+        this.allTravels = data
+        showListByCatagory("all")
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val dealsItemBinding = DataBindingUtil.inflate<ViewDataBinding>(
@@ -21,11 +29,28 @@ class DealsCardAdapter(private val destinationList: List<TravelModel>) : Recycle
     }
 
     override fun getItemCount(): Int {
-        return destinationList.size
+        return travelList.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as DealsViewHolder).onBind(destinationList[position])
+        (holder as DealsViewHolder).onBind(travelList[position])
+    }
+
+    fun showListByCatagory(category: String){
+
+        when(category){
+            "All" -> this.categoricalTravelList = travelList
+
+            "Flights" -> this.categoricalTravelList = travelList.filter { it.category == "Flights" }
+
+            "Hotels" -> this.categoricalTravelList = travelList.filter { it.category == "Hotels" }
+
+            "Transportations" -> this.categoricalTravelList = travelList.filter { it.category == "Transportations" }
+
+            else -> this.categoricalTravelList = travelList
+        }
+
+        notifyDataSetChanged()
     }
 
     inner class DealsViewHolder(
