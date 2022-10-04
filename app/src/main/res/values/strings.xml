@@ -25,4 +25,9 @@
     <string name="hotels">Hotels</string>
     <string name="cars">Cars</string>
     <string name="taxi">Taxi</string>
+    <string name="deals">DEALS</string>
+    <string name="deals_image">Deals Image</string>
+    <string name="category">category</string>
+    <string name="all">All</string>
+    <string name="transportations">Transportations</string>
 </resources>

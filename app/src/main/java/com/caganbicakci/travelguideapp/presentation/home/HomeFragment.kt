@@ -5,30 +5,53 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView.Orientation
 import com.caganbicakci.travelguideapp.BR
 import com.caganbicakci.travelguideapp.databinding.FragmentHomeBinding
+import com.caganbicakci.travelguideapp.domain.adapter.BannerCardAdapter
+import com.caganbicakci.travelguideapp.domain.adapter.DealsCardAdapter
+import com.caganbicakci.travelguideapp.domain.model.TravelModel
+import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    private lateinit var homeFragmentBinding : FragmentHomeBinding
+    private lateinit var homeFragmentBinding: FragmentHomeBinding
+    private val travelViewModel: TravelViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         homeFragmentBinding = FragmentHomeBinding.inflate(inflater)
         return homeFragmentBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        homeFragmentBinding.apply {
-            val layoutManager = GridLayoutManager(activity,1, GridLayoutManager.HORIZONTAL,false)
-            bannerRecyclerView.layoutManager = layoutManager
-            val adapter = BannerCardAdapter()
-            setVariable(BR.bannerAdapter, adapter)
+
+        travelViewModel.getAllTravels().observe(viewLifecycleOwner) { travelList ->
+            homeFragmentBinding.apply {
+                val layoutManager = GridLayoutManager(
+                    activity,
+                    1,
+                    GridLayoutManager.HORIZONTAL,
+                    false
+                )
+                val bannerAdapter = BannerCardAdapter()
+                bannerRecyclerView.layoutManager = layoutManager
+                setVariable(BR.bannerAdapter, bannerAdapter)
+
+                val dealsCardAdapter = DealsCardAdapter(travelList)
+                setVariable(BR.dealsAdapter, dealsCardAdapter)
+
+            }
+
         }
+
     }
 }
