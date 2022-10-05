@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <style name="categoryTitleStyle">
         <item name="android:fontFamily">@font/source_sans_pro</item>
@@ -14,6 +14,48 @@
         <item name="android:textStyle">bold</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="tabLayoutTextStyle" parent="@android:style/TextAppearance.Widget.TabWidget">
+        <item name="android:fontFamily">@font/source_sans_pro</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <style name="homeTextStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/source_sans_pro</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="cardTextStyle">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/source_sans_pro</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="cardTextStyleSmall" parent="cardTextStyle">
+        <item name="android:textSize">@dimen/_10ssp</item>
+    </style>
+
+    <style name="cardTextStyleMedium" parent="cardTextStyle">
+        <item name="android:textSize">@dimen/_16ssp</item>
+    </style>
+
+    <style name="cardTextStyleMediumBold" parent="cardTextStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+    </style>
+
+    <style name="cardTextStyleLarge" parent="cardTextStyle">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/_24ssp</item>
+    </style>
+
+    <style name="cardImageStyle">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="cornerRadius">@dimen/_4sdp</item>
     </style>
 
 </resources>

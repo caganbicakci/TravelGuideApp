@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="travelModel"
             type="com.caganbicakci.travelguideapp.domain.model.TravelModel" />
@@ -36,7 +37,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_travel_card"/>
+                    android:background="@drawable/bg_travel_card" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -46,24 +47,19 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/cardTextStyleLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_24ssp"
                         android:text="@{travelModel.city}"
-                        tools:text="Istanbul"/>
+                        tools:text="City" />
 
                     <TextView
+                        style="@style/cardTextStyleMedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_4sdp"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_16ssp"
+                        android:layout_marginTop="@dimen/_2sdp"
                         android:text="@{travelModel.country}"
-                        tools:text="Turkey"/>
+                        tools:text="Country" />
 
                 </LinearLayout>
 
@@ -74,33 +70,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_12sdp"
             android:background="@drawable/bg_category_text"
             android:fontFamily="@font/source_sans_pro"
-            android:layout_marginTop="@dimen/_12sdp"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:textColor="@color/white"
-            android:textSize="@dimen/_8ssp"
-            android:paddingVertical="@dimen/_2sdp"
+            android:gravity="center"
             android:paddingHorizontal="@dimen/_4sdp"
+            android:paddingVertical="@dimen/_2sdp"
             android:text="@{travelModel.category}"
             android:textAllCaps="true"
-            tools:text="HOTEL"
-            />
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="HOTEL" />
 
         <ImageButton
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_8sdp"
             android:background="@drawable/bg_bookmark"
             android:contentDescription="@string/Bookmarks"
             android:padding="@dimen/_12sdp"
-            android:src="@drawable/ic_bookmark"/>
+            android:src="@drawable/ic_bookmark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
-            name="travelModel"
-            type="com.caganbicakci.travelguideapp.domain.model.TravelModel" />
+            name="tripPlanModel"
+            type="com.caganbicakci.travelguideapp.domain.model.TripPlanModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,18 +26,16 @@
                 app:cardCornerRadius="@dimen/_4sdp">
 
                 <ImageView
+                    style="@style/cardImageStyle"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/deals_image"
-                    android:scaleType="centerCrop"
-                    app:cardCornerRadius="@dimen/_8sdp"
-                    app:imageResource="@{travelModel.images[0].url}"
                     tools:src="@tools:sample/backgrounds/scenic" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@drawable/bg_travel_card"/>
+                    android:background="@drawable/bg_travel_card" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -46,24 +45,18 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/cardTextStyleLarge"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:textStyle="bold"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_24ssp"
-                        android:text="@{travelModel.city}"
-                        tools:text="Istanbul"/>
+                        android:text="@{tripPlanModel.location}"
+                        tools:text="Istanbul" />
 
                     <TextView
+                        style="@style/cardTextStyleMedium"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_4sdp"
-                        android:fontFamily="@font/source_sans_pro"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_16ssp"
-                        android:text="@{travelModel.country}"
-                        tools:text="Turkey"/>
+                        android:layout_marginTop="@dimen/_2sdp"
+                        tools:text="Wed, 29 Dec - 31 Dec" />
 
                 </LinearLayout>
 
@@ -74,30 +67,33 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/bg_category_text"
-            android:fontFamily="@font/source_sans_pro"
-            android:layout_marginTop="@dimen/_12sdp"
             android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:drawablePadding="@dimen/_4sdp"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="@dimen/_8ssp"
-            android:paddingVertical="@dimen/_2sdp"
-            android:paddingHorizontal="@dimen/_4sdp"
-            tools:text="HOTEL"
-            />
+            android:textSize="@dimen/_10ssp"
+            app:drawableStartCompat="@drawable/ic_bookmark_filled"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="5 Items" />
 
-        <ImageButton
-            android:layout_width="@dimen/_24sdp"
-            android:layout_height="@dimen/_24sdp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="@dimen/_8sdp"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:background="@drawable/bg_bookmark"
-            android:padding="@dimen/_12sdp"
-            android:src="@drawable/ic_bookmark"/>
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:drawablePadding="@dimen/_4sdp"
+            android:fontFamily="@font/source_sans_pro"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            app:drawableStartCompat="@drawable/ic_clock"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="5 days left" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

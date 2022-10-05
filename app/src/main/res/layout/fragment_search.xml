@@ -14,72 +14,78 @@
             type="com.caganbicakci.travelguideapp.presentation.search.NearByAttractionsAdapter" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.search.SearchFragment">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/searchPageTitle"
-            style="@style/pageTitleStyle"
-            android:text="@string/search"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/searchBar"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_8sdp"
-            app:layout_constraintTop_toBottomOf="@id/searchPageTitle">
+            tools:context=".presentation.search.SearchFragment">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <TextView
+                android:id="@+id/searchPageTitle"
+                style="@style/pageTitleStyle"
+                android:text="@string/search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/searchBar"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableEnd="@drawable/ic_search_view"
-                android:hint="@string/where_next" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@id/searchPageTitle">
 
-        <TextView
-            android:id="@+id/topDestinationsTitle"
-            style="@style/categoryTitleStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="@dimen/_8sdp"
-            android:text="@string/top_destination"
-            app:layout_constraintStart_toStartOf="@id/searchBar"
-            app:layout_constraintTop_toBottomOf="@id/searchBar" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableEnd="@drawable/ic_search_view"
+                    android:hint="@string/where_next" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/topDestinationsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:adapter="@{topDestinationsAdapter}"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/topDestinationsTitle" />
+            <TextView
+                android:id="@+id/topDestinationsTitle"
+                style="@style/categoryTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/top_destination"
+                app:layout_constraintStart_toStartOf="@id/searchBar"
+                app:layout_constraintTop_toBottomOf="@id/searchBar" />
 
-        <TextView
-            android:id="@+id/nearbyAttractionsTitle"
-            style="@style/categoryTitleStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="@string/nearby_attractions"
-            app:layout_constraintStart_toStartOf="@id/topDestinationsRecyclerView"
-            app:layout_constraintTop_toBottomOf="@id/topDestinationsRecyclerView" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/topDestinationsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:adapter="@{topDestinationsAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/topDestinationsTitle" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/nearbyAttractionsRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adapter="@{nearByAttractionsAdapter}"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintTop_toBottomOf="@id/nearbyAttractionsTitle" />
+            <TextView
+                android:id="@+id/nearbyAttractionsTitle"
+                style="@style/categoryTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/nearby_attractions"
+                app:layout_constraintStart_toStartOf="@id/topDestinationsRecyclerView"
+                app:layout_constraintTop_toBottomOf="@id/topDestinationsRecyclerView" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="@dimen/_8sdp"
+                android:id="@+id/nearbyAttractionsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adapter="@{nearByAttractionsAdapter}"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/nearbyAttractionsTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

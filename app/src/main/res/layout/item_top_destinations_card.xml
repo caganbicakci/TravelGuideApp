@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="travelModel"
             type="com.caganbicakci.travelguideapp.domain.model.TravelModel" />
@@ -20,18 +21,17 @@
             app:cardCornerRadius="@dimen/_4sdp">
 
             <ImageView
+                style="@style/cardImageStyle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/deals_image"
-                android:scaleType="centerCrop"
-                app:cardCornerRadius="@dimen/_8sdp"
                 app:imageResource="@{travelModel.images[0].url}"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/bg_travel_card"/>
+                android:background="@drawable/bg_travel_card" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,22 +41,19 @@
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/cardTextStyleMediumBold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/source_sans_pro"
-                    android:textStyle="bold"
-                    android:textColor="@color/white"
                     android:text="@{travelModel.city}"
-                    tools:text="Istanbul"/>
+                    tools:text="Istanbul" />
 
                 <TextView
+                    style="@style/cardTextStyleSmall"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_4sdp"
-                    android:fontFamily="@font/source_sans_pro"
-                    android:textColor="@color/white"
                     android:text="@{travelModel.country}"
-                    tools:text="Turkey"/>
+                    tools:text="Turkey" />
 
             </LinearLayout>
 

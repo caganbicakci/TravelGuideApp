@@ -14,75 +14,117 @@
             type="com.caganbicakci.travelguideapp.presentation.home.DealsCardAdapter" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.home.HomeFragment">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/iv_home_bg"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/bg_image_home"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            tools:context=".presentation.home.HomeFragment">
 
-        <TextView
-            android:id="@+id/tv_text_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginEnd="@dimen/_96sdp"
-            android:layout_marginBottom="@dimen/_32sdp"
-            android:fontFamily="@font/source_sans_pro"
-            android:text="@string/next_destination"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="@dimen/_24ssp"
-            app:layout_constraintBottom_toTopOf="@id/banner_recycler_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <ImageView
+                android:id="@+id/iv_home_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/bg_image_home"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <TextView
+                android:id="@+id/tv_text_home"
+                style="@style/homeTextStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginEnd="@dimen/_96sdp"
+                android:layout_marginBottom="@dimen/_32sdp"
+                android:text="@string/next_destination"
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/banner_recycler_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_8sdp"
-            android:layout_marginBottom="@dimen/_20sdp"
-            android:adapter="@{bannerAdapter}"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="@+id/iv_home_bg"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <TextView
-            android:id="@+id/deals_text_view"
-            style="@style/categoryTitleStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="@string/deals"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_home_bg" />
+                android:textSize="@dimen/_24ssp"
+                app:layout_constraintBottom_toTopOf="@id/banner_recycler_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/deals_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_48sdp"
-            android:adapter="@{dealsAdapter}"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/deals_text_view" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/banner_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:adapter="@{bannerAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_home_bg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/dealsTextView"
+                style="@style/categoryTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/deals"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_home_bg" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/categoryTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                app:layout_constraintStart_toStartOf="@id/dealsTextView"
+                app:layout_constraintTop_toBottomOf="@id/dealsTextView"
+                app:tabIndicatorFullWidth="false"
+                app:tabInlineLabel="true"
+                app:tabMode="scrollable"
+                app:tabTextAppearance="@style/tabLayoutTextStyle">
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabCategoryAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/all" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabCategoryFlights"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/flights" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabCategoryHotels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hotels" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:id="@+id/tabCategoryTransportations"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/transportations" />
+
+            </com.google.android.material.tabs.TabLayout>
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/deals_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:adapter="@{dealsAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/categoryTabLayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 </layout>

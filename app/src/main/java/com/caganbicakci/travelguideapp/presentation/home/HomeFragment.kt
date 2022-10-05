@@ -45,6 +45,8 @@ class HomeFragment : Fragment() {
                 val dealsCardAdapter = DealsCardAdapter(travelList)
                 setVariable(BR.dealsAdapter, dealsCardAdapter)
 
+                //TODO(Category tab view get trip by category functionality)
+
             }
 
         }
