@@ -55,7 +55,7 @@
 
     <style name="cardImageStyle">
         <item name="android:scaleType">centerCrop</item>
-        <item name="cornerRadius">@dimen/_4sdp</item>
+        <item name="cornerRadius">@dimen/_6sdp</item>
     </style>
 
 </resources>

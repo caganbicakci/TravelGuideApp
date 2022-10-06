@@ -9,6 +9,7 @@ import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.viewModels
 import com.caganbicakci.travelguideapp.databinding.FragmentSearchBinding
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
+import com.caganbicakci.travelguideapp.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,10 +31,10 @@ class SearchFragment : Fragment() {
 
         travelViewModel.getAllTravels().observe(viewLifecycleOwner) { travelList ->
             searchFragmentBinding.apply {
-                val topDestinationsAdapter = TopDestinationsAdapter(travelList.filter { it.category == "topdestination" })
+                val topDestinationsAdapter = TopDestinationsAdapter(travelList.filter { it.category == Constants.TOP_DESTINATIONS })
                 setVariable(BR.topDestinationsAdapter, topDestinationsAdapter)
 
-                val nearByAttractionsAdapter = NearByAttractionsAdapter(travelList.filter { it.category == "nearby" })
+                val nearByAttractionsAdapter = NearByAttractionsAdapter(travelList.filter { it.category == Constants.NEAR_BY_ATTRACTIONS })
                 setVariable(BR.nearByAttractionsAdapter, nearByAttractionsAdapter)
             }
 

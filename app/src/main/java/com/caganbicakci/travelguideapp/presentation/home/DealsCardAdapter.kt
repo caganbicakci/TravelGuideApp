@@ -12,14 +12,6 @@ import com.caganbicakci.travelguideapp.domain.model.TravelModel
 
 class DealsCardAdapter(private val travelList: List<TravelModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private var allTravels : List<TravelModel> = listOf()
-    private var categoricalTravelList : List<TravelModel> = listOf()
-
-    fun setData(data: List<TravelModel>) {
-        this.allTravels = data
-        showListByCatagory("all")
-    }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val dealsItemBinding = DataBindingUtil.inflate<ViewDataBinding>(
             LayoutInflater.from(parent.context), R.layout.item_deals_card, parent, false
@@ -36,22 +28,6 @@ class DealsCardAdapter(private val travelList: List<TravelModel>) : RecyclerView
         (holder as DealsViewHolder).onBind(travelList[position])
     }
 
-    fun showListByCatagory(category: String){
-
-        when(category){
-            "All" -> this.categoricalTravelList = travelList
-
-            "Flights" -> this.categoricalTravelList = travelList.filter { it.category == "Flights" }
-
-            "Hotels" -> this.categoricalTravelList = travelList.filter { it.category == "Hotels" }
-
-            "Transportations" -> this.categoricalTravelList = travelList.filter { it.category == "Transportations" }
-
-            else -> this.categoricalTravelList = travelList
-        }
-
-        notifyDataSetChanged()
-    }
 
     inner class DealsViewHolder(
         private val dealsItemBinding: ViewDataBinding
