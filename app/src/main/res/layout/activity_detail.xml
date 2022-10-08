@@ -8,18 +8,22 @@
         <variable
             name="travelModel"
             type="com.caganbicakci.travelguideapp.domain.model.TravelModel" />
+
+        <variable
+            name="imageListAdapter"
+            type="com.caganbicakci.travelguideapp.presentation.detail.TravelCardImagesAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.detail.DetailFragment">
+        tools:context=".DetailActivity">
 
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_detail_image"
             imageResource="@{travelModel.images[0].url}"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/_300sdp"
             android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,6 +31,19 @@
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.SelectedCornerRadius"
             tools:src="@tools:sample/backgrounds/scenic" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_16sdp"
+            android:adapter="@{imageListAdapter}"
+            android:background="@drawable/bg_images_recycler_view"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="@dimen/_4sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="@id/iv_detail_image" />
 
         <ImageButton
             android:id="@+id/btnClose"

@@ -1,6 +1,5 @@
 package com.caganbicakci.travelguideapp.presentation.home
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.caganbicakci.travelguideapp.BR
-import com.caganbicakci.travelguideapp.DetailActivity
 import com.caganbicakci.travelguideapp.databinding.FragmentHomeBinding
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
@@ -34,7 +32,6 @@ class HomeFragment : Fragment(), TravelClickHandler {
     }
 
     override fun travelItemClicked(travelModel: TravelModel) {
-
         findNavController().apply {
             val action = HomeFragmentDirections.actionHomeFragmentToDetailActivity(travelModel)
             navigate(action)
