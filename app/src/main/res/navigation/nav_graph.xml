@@ -9,20 +9,48 @@
         android:name="com.caganbicakci.travelguideapp.presentation.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home"
-        />
+        >
+        <action
+            android:id="@+id/action_homeFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
+        <argument
+            android:name="travelModel"
+            app:argType="com.caganbicakci.travelguideapp.domain.model.TravelModel" />
+    </fragment>
     <fragment
         android:id="@+id/guideFragment"
         android:name="com.caganbicakci.travelguideapp.presentation.guide.GuideFragment"
         android:label="GuideFragment"
-        tools:layout="@layout/fragment_guide"/>
+        tools:layout="@layout/fragment_guide">
+        <action
+            android:id="@+id/action_guideFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
+    </fragment>
     <fragment
         android:id="@+id/tripFragment"
         android:name="com.caganbicakci.travelguideapp.presentation.trip.TripFragment"
         android:label="TripFragment"
-        tools:layout="@layout/fragment_trip"/>
+        tools:layout="@layout/fragment_trip">
+        <action
+            android:id="@+id/action_tripFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.caganbicakci.travelguideapp.presentation.search.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search"/>
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/detailActivity"
+        android:name="com.caganbicakci.travelguideapp.DetailActivity"
+        android:label="DetailActivity"
+        tools:layout="@layout/activity_detail">
+        <argument
+            android:name="travelModel"
+            app:argType="com.caganbicakci.travelguideapp.domain.model.TravelModel" />
+    </activity>
 </navigation>

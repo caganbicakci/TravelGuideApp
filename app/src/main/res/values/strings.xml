@@ -33,4 +33,5 @@
     <string name="location">Location</string>
     <string name="save_trip_plan">Save Trip Plan</string>
     <string name="add_trip_plan">Add Trip Plan</string>
+    <string name="add_bookmark">Add Bookmark</string>
 </resources>

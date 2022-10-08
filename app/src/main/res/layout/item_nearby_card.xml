@@ -90,7 +90,7 @@
             android:layout_height="@dimen/_24sdp"
             android:layout_marginTop="@dimen/_8sdp"
             android:layout_marginEnd="@dimen/_8sdp"
-            android:background="@drawable/bg_bookmark"
+            android:background="@drawable/bg_icon_rounded"
             android:contentDescription="@string/Bookmarks"
             android:padding="@dimen/_12sdp"
             android:src="@drawable/ic_bookmark"

@@ -1,6 +1,7 @@
 package com.caganbicakci.travelguideapp.presentation.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -9,8 +10,12 @@ import com.caganbicakci.travelguideapp.BR
 import com.caganbicakci.travelguideapp.R
 import com.caganbicakci.travelguideapp.databinding.ItemDealsCardBinding
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
+import com.caganbicakci.travelguideapp.handler.TravelClickHandler
 
-class DealsCardAdapter(private val travelList: List<TravelModel>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class DealsCardAdapter(
+    private val travelList: List<TravelModel>,
+    private val clickHandler: TravelClickHandler
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val dealsItemBinding = DataBindingUtil.inflate<ViewDataBinding>(
@@ -31,11 +36,20 @@ class DealsCardAdapter(private val travelList: List<TravelModel>) : RecyclerView
 
     inner class DealsViewHolder(
         private val dealsItemBinding: ViewDataBinding
-    ): RecyclerView.ViewHolder(dealsItemBinding.root){
+    ) : RecyclerView.ViewHolder(dealsItemBinding.root), View.OnClickListener {
 
-        fun onBind(dealsItem: TravelModel){
+        init{
+            dealsItemBinding.root.setOnClickListener(this)
+        }
+
+        fun onBind(dealsItem: TravelModel) {
             val binding = dealsItemBinding as ItemDealsCardBinding
             binding.setVariable(BR.travelModel, dealsItem)
+        }
+
+        override fun onClick(v: View?){
+            val position = adapterPosition
+            clickHandler.travelItemClicked(travelList[position])
         }
 
     }

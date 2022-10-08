@@ -1,5 +1,10 @@
 package com.caganbicakci.travelguideapp.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+
+@Parcelize
 data class TravelModel (
     val title: String,
     val description: String,
@@ -9,12 +14,10 @@ data class TravelModel (
     val images: List<Image>,
     val isBookmark: Boolean,
     val id: String
-)
+) : Parcelable
 
+@Parcelize
 data class Image (
-    val altText: Any? = null,
-    val height: Long,
-    val width: Long,
     val url: String
-)
+) : Parcelable
 

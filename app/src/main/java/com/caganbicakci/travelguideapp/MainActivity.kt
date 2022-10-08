@@ -3,13 +3,11 @@ package com.caganbicakci.travelguideapp
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.WindowInsets
 import androidx.activity.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.caganbicakci.travelguideapp.databinding.ActivityMainBinding
-import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
