@@ -6,6 +6,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.databinding.BindingAdapter
+import com.caganbicakci.travelguideapp.R
+import com.caganbicakci.travelguideapp.utils.Constants
 import com.squareup.picasso.Picasso
 import java.util.*
 
@@ -29,6 +31,26 @@ class DataBindingAdapter {
                 val finalFormatter = SimpleDateFormat("MMMM dd, yyyy", Locale.getDefault())
                 text = finalFormatter.format(it)
             }
+        }
+
+        @JvmStatic
+        @BindingAdapter("setIcon")
+        fun setIcon(imageView: ImageView, resource: String) {
+
+            val imageResource = when (resource) {
+                Constants.SIGHTSEEING -> R.drawable.ic_shrine_filled
+                Constants.RESORT -> R.drawable.ic_wine
+                Constants.RESTAURANT -> R.drawable.ic_restaurant
+                Constants.MUSEUM -> R.drawable.ic_map
+                Constants.MALL -> R.drawable.ic_hotel
+                Constants.TAXI -> R.drawable.ic_taxi
+                Constants.RENTCAR -> R.drawable.ic_car
+                else -> null
+            }
+            if (imageResource != null) {
+                imageView.setImageResource(imageResource)
+            }
+
         }
     }
 }

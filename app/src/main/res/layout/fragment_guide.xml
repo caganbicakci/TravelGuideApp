@@ -12,6 +12,10 @@
         <variable
             name="topPickArticlesAdapter"
             type="com.caganbicakci.travelguideapp.presentation.guide.TopPickArticlesAdapter" />
+
+        <variable
+            name="categoryAdapter"
+            type="com.caganbicakci.travelguideapp.presentation.guide.TravelCategoryListAdapter" />
     </data>
 
     <LinearLayout
@@ -59,6 +63,15 @@
                 android:drawableEnd="@drawable/ic_search_view"
                 android:hint="@string/search_hint_guide" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            android:adapter="@{categoryAdapter}"
+            />
 
         <TextView
             android:id="@+id/tvTopPickCategory"

@@ -28,9 +28,9 @@ class GuideFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        guideFragmentBinding.apply {
 
-        travelViewModel.getAllTravels().observe(viewLifecycleOwner) { travelList ->
-            guideFragmentBinding.apply {
+            travelViewModel.getAllTravels().observe(viewLifecycleOwner) { travelList ->
                 val mightNeedTheseAdapter =
                     MightNeedTheseAdapter(travelList.filter { it.category == Constants.MIGHT_NEED_THESE })
                 setVariable(BR.mightNeedTheseAdapter, mightNeedTheseAdapter)
@@ -38,6 +38,12 @@ class GuideFragment : Fragment() {
                 val topPickArticlesAdapter =
                     TopPickArticlesAdapter(travelList.filter { it.category == Constants.TOP_PICK_ARTICLES })
                 setVariable(BR.topPickArticlesAdapter, topPickArticlesAdapter)
+
+            }
+
+            travelViewModel.getAllCategories().observe(viewLifecycleOwner) { categoryList ->
+                val travelCategoryAdapter = TravelCategoryListAdapter(categoryList)
+                setVariable(BR.categoryAdapter, travelCategoryAdapter)
             }
 
         }
