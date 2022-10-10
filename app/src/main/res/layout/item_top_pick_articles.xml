@@ -12,7 +12,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_240sdp"
+        android:layout_height="@dimen/_220sdp"
         android:layout_marginStart="@dimen/_8sdp"
         app:cardCornerRadius="@dimen/_8sdp">
 
@@ -48,7 +48,7 @@
                 android:layout_marginTop="@dimen/_6sdp"
                 android:text="@{travelModel.description}"
                 android:fontFamily="@font/source_sans_pro"
-                android:textSize="@dimen/_14ssp"
+                android:textSize="@dimen/_12ssp"
                 android:textStyle="bold"
                 tools:text="Beautiful Alley Scene in Old Town in Europe at Sunset" />
         </LinearLayout>

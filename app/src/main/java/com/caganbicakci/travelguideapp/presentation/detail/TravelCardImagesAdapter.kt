@@ -7,7 +7,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.caganbicakci.travelguideapp.BR
 import com.caganbicakci.travelguideapp.R
-import com.caganbicakci.travelguideapp.databinding.ItemMightNeedBinding
 import com.caganbicakci.travelguideapp.databinding.ItemTravelImageCardBinding
 import com.caganbicakci.travelguideapp.domain.model.Image
 

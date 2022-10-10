@@ -32,7 +32,6 @@
     <style name="cardTextStyle">
         <item name="android:textColor">@color/white</item>
         <item name="android:fontFamily">@font/source_sans_pro</item>
-        <item name="android:gravity">center</item>
     </style>
 
     <style name="cardTextStyleSmall" parent="cardTextStyle">

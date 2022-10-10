@@ -18,77 +18,81 @@
             type="com.caganbicakci.travelguideapp.presentation.guide.TravelCategoryListAdapter" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".presentation.guide.GuideFragment">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/searchPageTitle"
-            style="@style/pageTitleStyle"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:text="@string/guide" />
-
-        <TextView
-            android:id="@+id/tvMightNeedCategory"
-            style="@style/categoryTitleStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="@string/might_need_these" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:adapter="@{mightNeedTheseAdapter}"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/searchBar"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_marginHorizontal="@dimen/_8sdp"
-            app:layout_constraintTop_toBottomOf="@id/searchPageTitle">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".presentation.guide.GuideFragment">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <TextView
+                android:id="@+id/searchPageTitle"
+                style="@style/pageTitleStyle"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:text="@string/guide" />
+
+            <TextView
+                android:id="@+id/tvMightNeedCategory"
+                style="@style/categoryTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/might_need_these" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:adapter="@{mightNeedTheseAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/searchBar"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableEnd="@drawable/ic_search_view"
-                android:hint="@string/search_hint_guide" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                app:layout_constraintTop_toBottomOf="@id/searchPageTitle">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="@dimen/_16sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"
-            android:adapter="@{categoryAdapter}"
-            />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:drawableEnd="@drawable/ic_search_view"
+                    android:hint="@string/search_hint_guide" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/tvTopPickCategory"
-            style="@style/categoryTitleStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_8sdp"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:text="@string/top_pick_articles" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:adapter="@{categoryAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8sdp"
-            android:adapter="@{topPickArticlesAdapter}"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            <TextView
+                android:id="@+id/tvTopPickCategory"
+                style="@style/categoryTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/top_pick_articles" />
 
-    </LinearLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:adapter="@{topPickArticlesAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        </LinearLayout>
+    </ScrollView>
 </layout>

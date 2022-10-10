@@ -12,9 +12,6 @@ import com.squareup.picasso.Picasso
 import java.util.*
 
 class DataBindingAdapter {
-    /**
-     * binding adapter for handle to set network image resource with picasso.
-     */
 
     companion object {
         @JvmStatic
@@ -34,8 +31,8 @@ class DataBindingAdapter {
         }
 
         @JvmStatic
-        @BindingAdapter("setIcon")
-        fun setIcon(imageView: ImageView, resource: String) {
+        @BindingAdapter("categoryIcon")
+        fun setCategoryIcon(imageView: ImageView, resource: String) {
 
             val imageResource = when (resource) {
                 Constants.SIGHTSEEING -> R.drawable.ic_shrine_filled

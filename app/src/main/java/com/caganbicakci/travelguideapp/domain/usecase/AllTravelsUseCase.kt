@@ -20,6 +20,9 @@ class AllTravelsUseCase @Inject constructor(
     val allTravels : LiveData<List<TravelModel>> = _allTravels
     val allCategories : LiveData<List<CategoryModel>> = _allCategories
 
+    private var _travelList = listOf<TravelModel>()
+    val travelList: List<TravelModel>
+        get() = _travelList
 
     fun getAllTravels(){
         travelRepository.getAllTravels().enqueue(object : Callback<List<TravelModel>> {
@@ -28,6 +31,10 @@ class AllTravelsUseCase @Inject constructor(
                 response: Response<List<TravelModel>>
             ) {
                 _allTravels.value = response.body()
+                if(response.body() != null){
+                    _travelList = response.body()!!
+                }
+
             }
 
             override fun onFailure(call: Call<List<TravelModel>>, t: Throwable) {

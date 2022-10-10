@@ -28,7 +28,7 @@
                 android:layout_width="@dimen/_16sdp"
                 android:layout_height="@dimen/_16sdp"
                 app:tint="@color/blue"
-                setIcon="@{categoryModel.icon}"
+                categoryIcon="@{categoryModel.icon}"
                 tools:src="@tools:sample/avatars"/>
             <View
                 android:layout_width="@dimen/_8sdp"

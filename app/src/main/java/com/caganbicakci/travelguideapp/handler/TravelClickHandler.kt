@@ -10,4 +10,5 @@ import com.caganbicakci.travelguideapp.domain.model.TravelModel
 
 interface TravelClickHandler {
     fun travelItemClicked(travelModel: TravelModel)
+
 }

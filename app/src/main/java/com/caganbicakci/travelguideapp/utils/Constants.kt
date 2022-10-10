@@ -17,10 +17,14 @@ class Constants {
         const val TAXI = "taxi"
         const val RENTCAR = "rentcar"
 
-        const val ALL = "All"
-        const val FLIGHTS = "Flights"
-        const val HOTELS = "Hotels"
-        const val TRANSPORT = "Transportations"
+        const val ALL = 0
+        const val FLIGHTS = 1
+        const val HOTELS = 2
+        const val TRANSPORTATIONS = 3
+
+        const val FLIGHTS_QUERY = "flight"
+        const val HOTELS_QUERY = "hotel"
+        const val TRANSPORTATIONS_QUERY = "transportation"
 
     }
 }

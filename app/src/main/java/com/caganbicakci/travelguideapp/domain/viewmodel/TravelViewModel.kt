@@ -1,6 +1,7 @@
 package com.caganbicakci.travelguideapp.domain.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.caganbicakci.travelguideapp.domain.model.CategoryModel
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
@@ -12,6 +13,11 @@ import javax.inject.Inject
 class TravelViewModel @Inject constructor(
     private val allTravelsUseCase: AllTravelsUseCase,
 ) : ViewModel() {
+
+    init {
+        getAllTravels()
+        getAllTravels()
+    }
 
     fun getAllTravels(): LiveData<List<TravelModel>> {
         allTravelsUseCase.apply {
@@ -26,4 +32,5 @@ class TravelViewModel @Inject constructor(
             return allCategories
         }
     }
+
 }

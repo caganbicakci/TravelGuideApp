@@ -52,6 +52,7 @@ class DealsCardAdapter(
             clickHandler.travelItemClicked(travelList[position])
         }
 
+
     }
 
 }
