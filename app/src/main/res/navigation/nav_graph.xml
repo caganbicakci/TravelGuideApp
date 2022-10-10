@@ -47,7 +47,7 @@
     </fragment>
     <activity
         android:id="@+id/detailActivity"
-        android:name="com.caganbicakci.travelguideapp.DetailActivity"
+        android:name="com.caganbicakci.travelguideapp.presentation.detail.DetailActivity"
         android:label="DetailActivity"
         tools:layout="@layout/activity_detail">
         <argument
