@@ -20,6 +20,7 @@ class DataBindingAdapter {
         fun setImageResource(imageView: ImageView, resource: String) {
 
             Picasso.get().load(resource)
+                .placeholder(R.drawable.bg_loading_image)
                 .error(R.drawable.bg_error_image)
                 .into(imageView)
         }

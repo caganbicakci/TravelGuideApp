@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/tripFragment"
-        android:name="com.caganbicakci.travelguideapp.presentation.trip.TripFragment"
+        android:name="com.caganbicakci.travelguideapp.presentation.tripplan.TripFragment"
         android:label="TripFragment"
         tools:layout="@layout/fragment_trip">
         <action

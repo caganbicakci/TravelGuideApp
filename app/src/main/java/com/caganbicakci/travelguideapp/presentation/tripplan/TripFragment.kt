@@ -1,4 +1,4 @@
-package com.caganbicakci.travelguideapp.presentation.trip
+package com.caganbicakci.travelguideapp.presentation.tripplan
 
 import android.os.Bundle
 import android.view.LayoutInflater
