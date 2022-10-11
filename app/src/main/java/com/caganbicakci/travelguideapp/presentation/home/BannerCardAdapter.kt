@@ -7,8 +7,8 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.caganbicakci.travelguideapp.BR
 import com.caganbicakci.travelguideapp.R
-import com.caganbicakci.travelguideapp.data.model.BannerItem
-import com.caganbicakci.travelguideapp.data.model.BannerItemList
+import com.caganbicakci.travelguideapp.domain.model.BannerItem
+import com.caganbicakci.travelguideapp.domain.model.BannerItemList
 import com.caganbicakci.travelguideapp.databinding.ItemBannerBinding
 
 class BannerCardAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

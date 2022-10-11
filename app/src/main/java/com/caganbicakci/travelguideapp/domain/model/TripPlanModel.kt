@@ -1,11 +1,19 @@
 package com.caganbicakci.travelguideapp.domain.model
 
-import java.util.Date
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.caganbicakci.travelguideapp.utils.Constants.Companion.TRIP_PLAN_TABLE
 
+
+@Entity(tableName = TRIP_PLAN_TABLE)
 data class TripPlanModel(
-    val location : String,
-    val startDate : Date,
-    val endDate : Date,
-    val description: String,
-    val tripPlanItems: List<String>
+    @PrimaryKey(autoGenerate = true)
+    val tid: Int = 0,
+
+    @ColumnInfo(name = "title")
+    val title: String = "",
+
+    @ColumnInfo(name = "description")
+    val description: String = "",
 )

@@ -3,6 +3,8 @@ package com.caganbicakci.travelguideapp.utils
 class Constants {
     companion object {
         const val BASE_URL = "https://6338f9fc383946bc7fed8334.mockapi.io/api/v1/"
+        const val TRIP_PLAN_DB = "trip_plan_database"
+        const val TRIP_PLAN_TABLE = "trip_plans"
 
         const val TOP_DESTINATIONS = "topdestination"
         const val NEAR_BY_ATTRACTIONS = "nearby"

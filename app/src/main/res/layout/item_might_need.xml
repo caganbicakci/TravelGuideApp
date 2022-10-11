@@ -39,6 +39,7 @@
                 android:layout_marginStart="@dimen/_8sdp"
                 android:layout_marginBottom="@dimen/_8sdp"
                 android:text="@{travelModel.city}"
+                android:gravity="start"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:text="City" />

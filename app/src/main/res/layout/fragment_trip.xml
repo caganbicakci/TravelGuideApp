@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="tripPlanAdapter"
+            type="com.caganbicakci.travelguideapp.presentation.tripplan.TripPlansAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +23,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabTripsBookmarks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_8sdp"
@@ -42,17 +47,31 @@
 
         </com.google.android.material.tabs.TabLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tripPlanRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="vertical"
+            android:adapter="@{tripPlanAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tabTripsBookmarks"
+
+            />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addTripPlanBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_80sdp"
+            android:contentDescription="@string/add_trip_plan"
             android:src="@drawable/ic_add"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:tint="@null"
-            android:contentDescription="@string/add_trip_plan"/>
+            app:tint="@null" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -6,6 +6,7 @@ import com.caganbicakci.travelguideapp.domain.repository.TravelRepository
 import com.caganbicakci.travelguideapp.utils.Constants.Companion.BASE_URL
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit

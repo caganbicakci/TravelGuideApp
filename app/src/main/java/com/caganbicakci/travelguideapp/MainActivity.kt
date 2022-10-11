@@ -32,5 +32,6 @@ class MainActivity : AppCompatActivity() {
             bottomNavigationView.itemIconTintList = null
         }
 
+
     }
 }
