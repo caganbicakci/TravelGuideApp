@@ -13,7 +13,7 @@ import com.caganbicakci.travelguideapp.databinding.ItemNearbyCardBinding
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.handler.TravelClickHandler
 
-class NearByAttractionsAdapter(private val travelList: List<TravelModel>, private val clickHandler: TravelClickHandler) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class NearByAttractionsAdapter(private val travelList: List<TravelModel>, private var clickHandler: TravelClickHandler) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val nearbyAttractionsItemsBinding = DataBindingUtil.inflate<ViewDataBinding>(
             LayoutInflater.from(parent.context), R.layout.item_nearby_card, parent, false
