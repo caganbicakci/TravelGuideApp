@@ -26,6 +26,9 @@
         <action
             android:id="@+id/action_guideFragment_to_detailActivity"
             app:destination="@id/detailActivity" />
+        <action
+            android:id="@+id/action_guideFragment_to_allTravelsFragment"
+            app:destination="@id/allTravelsFragment" />
     </fragment>
     <fragment
         android:id="@+id/tripFragment"
@@ -54,4 +57,12 @@
             android:name="travelModel"
             app:argType="com.caganbicakci.travelguideapp.domain.model.TravelModel" />
     </activity>
+    <fragment
+        android:id="@+id/allTravelsFragment"
+        android:name="com.caganbicakci.travelguideapp.presentation.alltravels.AllTravelsFragment"
+        android:label="AllTravelsFragment" >
+        <action
+            android:id="@+id/action_allTravelsFragment_to_detailActivity"
+            app:destination="@id/detailActivity" />
+    </fragment>
 </navigation>

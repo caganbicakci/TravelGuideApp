@@ -11,13 +11,17 @@ import com.caganbicakci.travelguideapp.utils.Constants
 import com.squareup.picasso.Picasso
 import java.util.*
 
+
 class DataBindingAdapter {
 
     companion object {
         @JvmStatic
         @BindingAdapter("imageResource")
         fun setImageResource(imageView: ImageView, resource: String) {
-            Picasso.get().load(resource).into(imageView)
+
+            Picasso.get().load(resource)
+                .error(R.drawable.bg_error_image)
+                .into(imageView)
         }
 
         @RequiresApi(Build.VERSION_CODES.N)
