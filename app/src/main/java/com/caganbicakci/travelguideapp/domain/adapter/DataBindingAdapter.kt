@@ -2,6 +2,7 @@ package com.caganbicakci.travelguideapp.domain.adapter
 
 import android.icu.text.SimpleDateFormat
 import android.os.Build
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
@@ -10,6 +11,7 @@ import com.caganbicakci.travelguideapp.R
 import com.caganbicakci.travelguideapp.utils.Constants
 import com.squareup.picasso.Picasso
 import java.util.*
+import java.util.function.BooleanSupplier
 
 
 class DataBindingAdapter {
@@ -18,7 +20,6 @@ class DataBindingAdapter {
         @JvmStatic
         @BindingAdapter("imageResource")
         fun setImageResource(imageView: ImageView, resource: String) {
-
             Picasso.get().load(resource)
                 .placeholder(R.drawable.bg_loading_image)
                 .error(R.drawable.bg_error_image)
@@ -52,6 +53,19 @@ class DataBindingAdapter {
             if (imageResource != null) {
                 imageView.setImageResource(imageResource)
             }
+        }
+
+        @JvmStatic
+        @BindingAdapter("setBookmarkIcon")
+        fun setBookmarkIcon(imageButton: ImageButton, isBookmark: Boolean) {
+
+            val iconResource = when (isBookmark) {
+                true -> R.drawable.ic_bookmark_filled
+                false -> R.drawable.ic_bookmark
+            }
+
+            imageButton.setImageResource(iconResource)
+
 
         }
     }

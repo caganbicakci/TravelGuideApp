@@ -17,34 +17,31 @@ class AllTravelsUseCase @Inject constructor(
     private var _allTravels = MutableLiveData<List<TravelModel>>()
     private var _allCategories = MutableLiveData<List<CategoryModel>>()
 
-    val allTravels : LiveData<List<TravelModel>> = _allTravels
-    val allCategories : LiveData<List<CategoryModel>> = _allCategories
+    val allTravels: LiveData<List<TravelModel>> = _allTravels
+    val allCategories: LiveData<List<CategoryModel>> = _allCategories
 
-    private var _travelList = listOf<TravelModel>()
-    val travelList: List<TravelModel>
-        get() = _travelList
 
-    fun getAllTravels(){
+    fun getAllTravels() {
         travelRepository.getAllTravels().enqueue(object : Callback<List<TravelModel>> {
             override fun onResponse(
                 call: Call<List<TravelModel>>,
                 response: Response<List<TravelModel>>
             ) {
                 _allTravels.value = response.body()
-                if(response.body() != null){
-                    _travelList = response.body()!!
-                }
-
             }
 
             override fun onFailure(call: Call<List<TravelModel>>, t: Throwable) {
-                Log.v("TRAVELS ERROR",t.message.toString())
+                Log.v("TRAVELS ERROR", t.message.toString())
             }
 
         })
     }
 
-    fun getAllCategories(){
+    fun changeBookmarkUseCase(id: String, isBookmark: Boolean) {
+        travelRepository.changeBookmark(id,isBookmark)
+    }
+
+    fun getAllCategories() {
         travelRepository.getAllCategories().enqueue(object : Callback<List<CategoryModel>> {
             override fun onResponse(
                 call: Call<List<CategoryModel>>,
@@ -54,9 +51,10 @@ class AllTravelsUseCase @Inject constructor(
             }
 
             override fun onFailure(call: Call<List<CategoryModel>>, t: Throwable) {
-                Log.v("CATEGORIES ERROR",t.message.toString())
+                Log.v("CATEGORIES ERROR", t.message.toString())
             }
 
         })
     }
+
 }

@@ -6,13 +6,17 @@ import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.repository.TravelRepository
 import retrofit2.Call
 
-class TravelRepositoryImp(private val apiService: ApiService) : TravelRepository{
+class TravelRepositoryImp(private val apiService: ApiService) : TravelRepository {
     override fun getAllTravels(): Call<List<TravelModel>> {
         return apiService.getAllTravels()
     }
 
     override fun getAllCategories(): Call<List<CategoryModel>> {
         return apiService.getAllCategories()
+    }
+
+    override fun changeBookmark(id: String, bookmark: Boolean) {
+        apiService.addOrRemoveTravelToBookmark(id, bookmark)
     }
 
 }

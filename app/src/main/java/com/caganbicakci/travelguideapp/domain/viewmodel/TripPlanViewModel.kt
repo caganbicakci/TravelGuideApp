@@ -17,7 +17,7 @@ class TripPlanViewModel @Inject constructor(private val allTripPlansUseCase: All
         getAllTripPlans()
     }
 
-    fun getAllTripPlans(): LiveData<List<TripPlanModel>> {
+    private fun getAllTripPlans(): LiveData<List<TripPlanModel>> {
         allTripPlansUseCase.apply {
             getAllTripPlans()
             return allTripPlans

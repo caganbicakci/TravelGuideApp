@@ -14,13 +14,14 @@ import com.caganbicakci.travelguideapp.databinding.FragmentSearchBinding
 import com.caganbicakci.travelguideapp.domain.dialog.SearchDialog
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
+import com.caganbicakci.travelguideapp.handler.BookmarkClickHandler
 import com.caganbicakci.travelguideapp.handler.TravelClickHandler
 import com.caganbicakci.travelguideapp.utils.Constants
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SearchFragment : Fragment(), TravelClickHandler {
+class SearchFragment : Fragment(), TravelClickHandler, BookmarkClickHandler {
 
     private lateinit var searchFragmentBinding: FragmentSearchBinding
     private val travelViewModel: TravelViewModel by viewModels()
@@ -47,7 +48,8 @@ class SearchFragment : Fragment(), TravelClickHandler {
 
                 val nearByAttractionsAdapter = NearByAttractionsAdapter(
                     travelList.filter { it.category == Constants.NEAR_BY_ATTRACTIONS },
-                    clickHandler
+                    travelClickHandler = clickHandler,
+                    bookmarkClickHandler = clickHandler
                 )
                 setVariable(BR.nearByAttractionsAdapter, nearByAttractionsAdapter)
 
@@ -57,7 +59,8 @@ class SearchFragment : Fragment(), TravelClickHandler {
 
                     SearchDialog.showSearchResultDialog(
                         context = requireContext(),
-                        clickHandler = clickHandler,
+                        travelClickHandler = clickHandler,
+                        bookmarkClickHandler =clickHandler,
                         searchResult = searchResult
                     )
                 }
@@ -70,5 +73,9 @@ class SearchFragment : Fragment(), TravelClickHandler {
             val action = SearchFragmentDirections.actionSearchFragmentToDetailActivity(travelModel)
             navigate(action)
         }
+    }
+
+    override fun setBookmarkStatus(id: String, isBookmark: Boolean) {
+        travelViewModel.changeBookmarkStatus(id,isBookmark)
     }
 }

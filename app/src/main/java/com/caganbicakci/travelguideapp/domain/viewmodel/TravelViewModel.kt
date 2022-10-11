@@ -33,4 +33,10 @@ class TravelViewModel @Inject constructor(
         }
     }
 
+    fun changeBookmarkStatus(id: String, isBookmark: Boolean){
+        allTravelsUseCase.apply {
+            changeBookmarkUseCase(id,isBookmark)
+        }
+    }
+
 }

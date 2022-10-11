@@ -1,5 +1,7 @@
 package com.caganbicakci.travelguideapp.presentation.guide
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,12 +14,14 @@ import com.caganbicakci.travelguideapp.databinding.FragmentGuideBinding
 import com.caganbicakci.travelguideapp.domain.dialog.SearchDialog
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
+import com.caganbicakci.travelguideapp.handler.BookmarkClickHandler
+import com.caganbicakci.travelguideapp.handler.CategoryClickHandler
 import com.caganbicakci.travelguideapp.handler.TravelClickHandler
 import com.caganbicakci.travelguideapp.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class GuideFragment : Fragment(), TravelClickHandler {
+class GuideFragment : Fragment(), TravelClickHandler, CategoryClickHandler, BookmarkClickHandler {
 
     private lateinit var guideFragmentBinding: FragmentGuideBinding
     private val travelViewModel: TravelViewModel by viewModels()
@@ -56,7 +60,8 @@ class GuideFragment : Fragment(), TravelClickHandler {
 
                     SearchDialog.showSearchResultDialog(
                         context = requireContext(),
-                        clickHandler = clickHandler,
+                        travelClickHandler = clickHandler,
+                        bookmarkClickHandler = clickHandler,
                         searchResult = searchResult
                     )
                 }
@@ -69,7 +74,7 @@ class GuideFragment : Fragment(), TravelClickHandler {
             }
 
             travelViewModel.getAllCategories().observe(viewLifecycleOwner) { categoryList ->
-                val travelCategoryAdapter = TravelCategoryListAdapter(categoryList)
+                val travelCategoryAdapter = TravelCategoryListAdapter(categoryList, clickHandler)
                 setVariable(BR.categoryAdapter, travelCategoryAdapter)
             }
 
@@ -82,6 +87,17 @@ class GuideFragment : Fragment(), TravelClickHandler {
             val action = GuideFragmentDirections.actionGuideFragmentToDetailActivity(travelModel)
             navigate(action)
         }
+    }
+
+    override fun searchCategoryOnMap(category: String) {
+        val gmmIntentUri = Uri.parse("geo:0,0?q=$category")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.setPackage("com.google.android.apps.maps")
+        startActivity(mapIntent)
+    }
+
+    override fun setBookmarkStatus(id: String, isBookmark: Boolean) {
+        //TODO("Not yet implemented")
     }
 
 }

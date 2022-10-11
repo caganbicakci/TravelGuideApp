@@ -36,14 +36,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_16sdp"
+            android:layout_marginBottom="16dp"
             android:adapter="@{imageListAdapter}"
             android:background="@drawable/bg_images_recycler_view"
             android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="@dimen/_4sdp"
+            android:paddingHorizontal="@dimen/_32sdp"
+            android:paddingVertical="@dimen/_4sdp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="@id/iv_detail_image" />
+            app:layout_constraintBottom_toBottomOf="@id/iv_detail_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
             android:id="@+id/btnClose"
@@ -91,21 +93,33 @@
             app:layout_constraintTop_toTopOf="@id/icon_pin"
             tools:text="Bali, Indonesia" />
 
-        <TextView
-            android:id="@+id/tv_description"
-            style="@style/detailTitleTextStyleMedium"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
-            android:text="@{travelModel.description}"
+            android:fadingEdge="vertical"
+            android:fadingEdgeLength="@dimen/_4sdp"
+            app:layout_constraintBottom_toTopOf="@id/bookmarkBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/icon_pin" />
+            app:layout_constraintTop_toBottomOf="@id/icon_pin">
 
+
+            <TextView
+                android:id="@+id/tv_description"
+                style="@style/detailTitleTextStyleMedium"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="start|top"
+                android:scrollbars="vertical"
+                android:text="@{travelModel.description}" />
+
+        </ScrollView>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/bookmarkBtn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
             android:layout_marginHorizontal="@dimen/_16sdp"
