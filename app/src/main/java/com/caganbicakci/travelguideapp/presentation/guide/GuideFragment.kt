@@ -8,11 +8,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.caganbicakci.travelguideapp.BR
+import com.caganbicakci.travelguideapp.R
+import com.caganbicakci.travelguideapp.databinding.DialogSearchResultBinding
 import com.caganbicakci.travelguideapp.databinding.FragmentGuideBinding
+import com.caganbicakci.travelguideapp.domain.dialog.SearchDialog
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
 import com.caganbicakci.travelguideapp.handler.TravelClickHandler
+import com.caganbicakci.travelguideapp.presentation.search.NearByAttractionsAdapter
 import com.caganbicakci.travelguideapp.utils.Constants
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -49,6 +54,16 @@ class GuideFragment : Fragment(), TravelClickHandler {
                     )
                 setVariable(BR.topPickArticlesAdapter, topPickArticlesAdapter)
 
+                searchBar.setEndIconOnClickListener {
+                    val searchResult =
+                        travelList.filter { it.title.contains(searchBar.editText?.text.toString()) }
+
+                    SearchDialog.showSearchResultDialog(
+                        context = requireContext(),
+                        clickHandler = clickHandler,
+                        searchResult = searchResult
+                    )
+                }
             }
 
             travelViewModel.getAllCategories().observe(viewLifecycleOwner) { categoryList ->
@@ -66,4 +81,5 @@ class GuideFragment : Fragment(), TravelClickHandler {
             navigate(action)
         }
     }
+
 }

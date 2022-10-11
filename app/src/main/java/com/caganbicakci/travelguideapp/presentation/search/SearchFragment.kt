@@ -11,6 +11,7 @@ import com.caganbicakci.travelguideapp.BR
 import com.caganbicakci.travelguideapp.R
 import com.caganbicakci.travelguideapp.databinding.DialogSearchResultBinding
 import com.caganbicakci.travelguideapp.databinding.FragmentSearchBinding
+import com.caganbicakci.travelguideapp.domain.dialog.SearchDialog
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
 import com.caganbicakci.travelguideapp.handler.TravelClickHandler
@@ -54,7 +55,11 @@ class SearchFragment : Fragment(), TravelClickHandler {
                     val searchResult =
                         travelList.filter { it.title.contains(searchBar.editText?.text.toString()) }
 
-                    showSearchResultDialog(searchResult)
+                    SearchDialog.showSearchResultDialog(
+                        context = requireContext(),
+                        clickHandler = clickHandler,
+                        searchResult = searchResult
+                    )
                 }
             }
         }
@@ -65,17 +70,5 @@ class SearchFragment : Fragment(), TravelClickHandler {
             val action = SearchFragmentDirections.actionSearchFragmentToDetailActivity(travelModel)
             navigate(action)
         }
-    }
-
-    private fun showSearchResultDialog(searchResult: List<TravelModel>) {
-        val dialog = BottomSheetDialog(requireContext())
-        val view = LayoutInflater.from(context).inflate(R.layout.dialog_search_result, null, false)
-        val binding = DialogSearchResultBinding.bind(view)
-        dialog.setContentView(binding.root)
-
-        val searchAdapter = NearByAttractionsAdapter(searchResult, clickHandler)
-        binding.setVariable(BR.searchAdapter, searchAdapter)
-
-        dialog.show()
     }
 }
