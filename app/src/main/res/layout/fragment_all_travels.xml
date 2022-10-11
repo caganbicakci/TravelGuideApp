@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="allTravelsAdapter"
+            type="com.caganbicakci.travelguideapp.presentation.alltravels.AllTravelsAdapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/allTravelsPageTitle"
+            style="@style/pageTitleStyle"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:text="@string/all" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/allTravelsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:adapter="@{allTravelsAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2" />
+
+    </LinearLayout>
+</layout>

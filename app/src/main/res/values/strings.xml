@@ -1,5 +1,40 @@
 <resources>
     <string name="app_name">Travel Guide App</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="trip">Trip Plan</string>
+    <string name="guide">Guide</string>
+
+    <string name="next_destination">Where\'s your next destination?</string>
+    <string name="where_next">Where next?</string>
+
+    <string name="top_destination">TOP DESTINATION</string>
+    <string name="nearby_attractions">NEARBY ATTRACTIONS</string>
+
+    <string name="trips">Trips</string>
+    <string name="Bookmarks">Bookmark</string>
+
+    <string name="might_need_these">MIGHT NEED THESE</string>
+    <string name="top_pick_articles">TOP-PICK ARTICLES</string>
+
+    <string name="see_all"><u>See all</u></string>
+    <string name="search_hint_guide">A country, a city, a place… or anything</string>
+    <string name="search_hint">Where next?</string>
+
+    <string name="flights">Flights</string>
+    <string name="hotels">Hotels</string>
+    <string name="cars">Cars</string>
+    <string name="taxi">Taxi</string>
+    <string name="deals">DEALS</string>
+    <string name="deals_image">Deals Image</string>
+    <string name="category">category</string>
+    <string name="all">All</string>
+    <string name="transportations">Transportations</string>
+    <string name="location">Location</string>
+    <string name="save_trip_plan">Save Trip Plan</string>
+    <string name="add_trip_plan">Add Trip Plan</string>
+    <string name="add_bookmark">Add Bookmark</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title">Title</string>
 </resources>

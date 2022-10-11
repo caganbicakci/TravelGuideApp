@@ -1,20 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="topDestinationsAdapter"
+            type="com.caganbicakci.travelguideapp.presentation.search.TopDestinationsAdapter" />
+
+        <variable
+            name="nearByAttractionsAdapter"
+            type="com.caganbicakci.travelguideapp.presentation.search.NearByAttractionsAdapter" />
     </data>
 
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.SearchFragment">
+        android:layout_height="match_parent">
 
-        <!-- TODO: Update blank fragment layout -->
-        <TextView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:layout_height="wrap_content"
+            tools:context=".presentation.search.SearchFragment">
 
-    </FrameLayout>
+            <TextView
+                android:id="@+id/searchPageTitle"
+                style="@style/pageTitleStyle"
+                android:text="@string/search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/searchBar"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                app:endIconDrawable="@drawable/ic_search_view"
+                app:endIconMode="custom"
+                app:endIconTint="@color/pink"
+                app:endIconCheckable="true"
+                app:layout_constraintTop_toBottomOf="@id/searchPageTitle">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/searchBarEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/where_next"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/topDestinationsTitle"
+                style="@style/categoryTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_8sdp"
+                android:text="@string/top_destination"
+                app:layout_constraintStart_toStartOf="@id/searchBar"
+                app:layout_constraintTop_toBottomOf="@id/searchBar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/topDestinationsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:adapter="@{topDestinationsAdapter}"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/topDestinationsTitle" />
+
+            <TextView
+                android:id="@+id/nearbyAttractionsTitle"
+                style="@style/categoryTitleStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:text="@string/nearby_attractions"
+                app:layout_constraintStart_toStartOf="@id/topDestinationsRecyclerView"
+                app:layout_constraintTop_toBottomOf="@id/topDestinationsRecyclerView" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/nearbyAttractionsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:adapter="@{nearByAttractionsAdapter}"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/nearbyAttractionsTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

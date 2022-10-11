@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="bannerItem"
+            type="com.caganbicakci.travelguideapp.domain.model.BannerItem" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="@dimen/_12sdp">
+
+        <ImageButton
+            android:layout_width="@dimen/_48sdp"
+            android:layout_height="@dimen/_48sdp"
+            android:background="@drawable/bg_banner_item"
+            android:padding="@dimen/_12sdp"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/ic_plane"
+            tools:backgroundTint="@color/black"
+            android:src="@{context.getDrawable(bannerItem.imageResource)}"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:contentDescription="@string/category" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:fontFamily="@font/source_sans_pro"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            android:text="@{bannerItem.name}"
+            tools:text="Flights"
+            tools:textColor="@color/black"/>
+    </LinearLayout>
+</layout>
