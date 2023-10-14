@@ -1,32 +1,45 @@
 package com.caganbicakci.travelguideapp.domain.viewmodel
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.caganbicakci.travelguideapp.data.localdb.TripPlanRepository
 import com.caganbicakci.travelguideapp.domain.model.TripPlanModel
-import com.caganbicakci.travelguideapp.domain.usecase.AllTripPlansUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class TripPlanViewModel @Inject constructor(private val allTripPlansUseCase: AllTripPlansUseCase) :
+class TripPlanViewModel @Inject constructor(private val tripPlanRepository: TripPlanRepository) :
     ViewModel() {
 
+    private var _allTripPlans = MutableLiveData<MutableList<TripPlanModel>>()
+    val allTripPlans : LiveData<MutableList<TripPlanModel>> = _allTripPlans
+
     init {
-        getAllTripPlans()
+        fetchTripPlanData()
     }
 
-    private fun getAllTripPlans(): LiveData<List<TripPlanModel>> {
-        allTripPlansUseCase.apply {
-            getAllTripPlans()
-            return allTripPlans
-        }
+    private fun getAllTripPlansFromRepository(): MutableList<TripPlanModel> {
+        return tripPlanRepository.getTripPlans()
     }
 
-    fun addTripPlan(tripPlan: TripPlanModel) = viewModelScope.launch(){
-        allTripPlansUseCase.apply {
+    fun addTripPlan(tripPlan: TripPlanModel) {
+        tripPlanRepository.apply {
             addTripPlan(tripPlan)
+            fetchTripPlanData()
         }
+    }
+
+    fun removeTripPlan(tripPlan: TripPlanModel) = viewModelScope.launch {
+        tripPlanRepository.apply {
+            removeTripPlan(tripPlan)
+            fetchTripPlanData()
+        }
+    }
+
+    private fun fetchTripPlanData() {
+        _allTripPlans.value = getAllTripPlansFromRepository()
     }
 }

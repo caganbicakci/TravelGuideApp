@@ -21,7 +21,6 @@ class DealsCardAdapter(
         val dealsItemBinding = DataBindingUtil.inflate<ViewDataBinding>(
             LayoutInflater.from(parent.context), R.layout.item_deals_card, parent, false
         )
-
         return DealsViewHolder(dealsItemBinding)
     }
 

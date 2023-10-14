@@ -11,4 +11,6 @@ class TripPlanRepository @Inject constructor(private val tripPlanDao: TripPlanDa
         return tripPlanDao.getAllTripPlans()
     }
 
+    fun removeTripPlan(tripPlan: TripPlanModel) = tripPlanDao.deleteTripPlan(tripPlan)
+
 }

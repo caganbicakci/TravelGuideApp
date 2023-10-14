@@ -5,28 +5,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.databinding.library.baseAdapters.BR
-import com.caganbicakci.travelguideapp.data.localdb.TripPlanRepository
+import androidx.fragment.app.activityViewModels
+import com.caganbicakci.travelguideapp.BR
 import com.caganbicakci.travelguideapp.databinding.FragmentTripBinding
 import com.caganbicakci.travelguideapp.domain.model.TripPlanModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TripPlanViewModel
+import com.caganbicakci.travelguideapp.handler.TripPlanClickHandler
 import com.caganbicakci.travelguideapp.presentation.dialog.bottomsheet.CustomBottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
-
 
 @AndroidEntryPoint
-class TripFragment : Fragment() {
-
-    @Inject
-    lateinit var repository: TripPlanRepository
-
-    @Inject
-    lateinit var tripPlanEntity: TripPlanModel
+class TripFragment : Fragment(), TripPlanClickHandler {
 
     private lateinit var tripFragmentBinding: FragmentTripBinding
-    private val tripPlanViewModel: TripPlanViewModel by viewModels()
+    private val tripPlanViewModel: TripPlanViewModel by activityViewModels()
+    private val clickHandler = this
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,22 +37,25 @@ class TripFragment : Fragment() {
                 showTripPlanDialog()
             }
         }
-
         setupRecyclerView()
     }
 
-
     private fun setupRecyclerView() {
-        tripFragmentBinding.apply {
-            val tripPlanAdapter = TripPlansAdapter(repository.getTripPlans())
-            setVariable(BR.tripPlanAdapter, tripPlanAdapter)
+        tripPlanViewModel.allTripPlans.observe(viewLifecycleOwner) {
+            tripFragmentBinding.apply {
+                tripPlanAdapter = TripPlansAdapter(it,clickHandler)
+                setVariable(BR.tripPlanAdapter, tripPlanAdapter)
+            }
         }
-
     }
 
     private fun showTripPlanDialog() {
         childFragmentManager.let {
             CustomBottomSheetDialog().show(it, "BottomSheetFragment")
         }
+    }
+
+    override fun tripPlanItemLongClicked(tripPlan: TripPlanModel, position: Int) {
+        tripPlanViewModel.removeTripPlan(tripPlan)
     }
 }
