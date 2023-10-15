@@ -9,7 +9,6 @@ import com.caganbicakci.travelguideapp.domain.model.TripPlanModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-import javax.inject.Singleton
 
 @HiltViewModel
 class TripPlanViewModel @Inject constructor(private val tripPlanRepository: TripPlanRepository) :
@@ -26,7 +25,7 @@ class TripPlanViewModel @Inject constructor(private val tripPlanRepository: Trip
         return tripPlanRepository.getTripPlans()
     }
 
-    fun addTripPlan(tripPlan: TripPlanModel) {
+    fun addTripPlan(tripPlan: TripPlanModel) = viewModelScope.launch {
         tripPlanRepository.apply {
             addTripPlan(tripPlan)
             fetchTripPlanData()
@@ -40,7 +39,7 @@ class TripPlanViewModel @Inject constructor(private val tripPlanRepository: Trip
         }
     }
 
-    private fun fetchTripPlanData() {
+    private fun fetchTripPlanData() = viewModelScope.launch {
         _allTripPlans.value = getAllTripPlansFromRepository()
     }
 }

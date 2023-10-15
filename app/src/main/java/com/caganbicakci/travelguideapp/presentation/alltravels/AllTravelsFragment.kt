@@ -34,7 +34,7 @@ class AllTravelsFragment : Fragment(), TravelClickHandler {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        travelViewModel.getAllTravels().observe(viewLifecycleOwner) { travelList ->
+        travelViewModel.allTravels.observe(viewLifecycleOwner) { travelList ->
             Log.e("TRAVEL LIST", travelList.toString())
             allTravelsFragmentBinding.apply {
                 val allTravelsAdapter = AllTravelsAdapter(travelList, clickHandler)

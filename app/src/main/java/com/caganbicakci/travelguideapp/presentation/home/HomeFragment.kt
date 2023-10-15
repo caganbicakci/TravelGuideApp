@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.caganbicakci.travelguideapp.BR
@@ -21,7 +22,7 @@ class HomeFragment : Fragment(), TravelClickHandler {
 
     private lateinit var homeFragmentBinding: FragmentHomeBinding
     private val clickHandler = this
-    private val travelViewModel: TravelViewModel by viewModels()
+    private val travelViewModel: TravelViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +46,7 @@ class HomeFragment : Fragment(), TravelClickHandler {
         setBannerView()
 
         homeFragmentBinding.apply {
-            travelViewModel.getAllTravels().observe(viewLifecycleOwner) { travelList ->
+            travelViewModel.allTravels.observe(viewLifecycleOwner) { travelList ->
 
                 setDealsListAdapter(travelList)
 

@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.caganbicakci.travelguideapp.BR
@@ -24,7 +25,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class GuideFragment : Fragment(), TravelClickHandler, CategoryClickHandler, BookmarkClickHandler {
 
     private lateinit var guideFragmentBinding: FragmentGuideBinding
-    private val travelViewModel: TravelViewModel by viewModels()
+    private val travelViewModel: TravelViewModel by activityViewModels()
     private val clickHandler = this
 
     override fun onCreateView(
@@ -39,7 +40,7 @@ class GuideFragment : Fragment(), TravelClickHandler, CategoryClickHandler, Book
         super.onViewCreated(view, savedInstanceState)
         guideFragmentBinding.apply {
 
-            travelViewModel.getAllTravels().observe(viewLifecycleOwner) { travelList ->
+            travelViewModel.allTravels.observe(viewLifecycleOwner) { travelList ->
                 val mightNeedTheseAdapter =
                     MightNeedTheseAdapter(
                         travelList.filter { it.category == Constants.MIGHT_NEED_THESE },
@@ -73,7 +74,7 @@ class GuideFragment : Fragment(), TravelClickHandler, CategoryClickHandler, Book
                 }
             }
 
-            travelViewModel.getAllCategories().observe(viewLifecycleOwner) { categoryList ->
+            travelViewModel.allCategories.observe(viewLifecycleOwner) { categoryList ->
                 val travelCategoryAdapter = TravelCategoryListAdapter(categoryList, clickHandler)
                 setVariable(BR.categoryAdapter, travelCategoryAdapter)
             }

@@ -39,7 +39,7 @@ class SearchFragment : Fragment(), TravelClickHandler, BookmarkClickHandler {
         super.onViewCreated(view, savedInstanceState)
 
         searchFragmentBinding.apply {
-            travelViewModel.getAllTravels().observe(viewLifecycleOwner) { travelList ->
+            travelViewModel.allTravels.observe(viewLifecycleOwner) { travelList ->
                 val topDestinationsAdapter = TopDestinationsAdapter(
                     travelList.filter { it.category == Constants.TOP_DESTINATIONS },
                     clickHandler
