@@ -6,17 +6,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
 import com.caganbicakci.travelguideapp.BR
-import com.caganbicakci.travelguideapp.R
 import com.caganbicakci.travelguideapp.databinding.FragmentDetailBinding
 import com.caganbicakci.travelguideapp.domain.model.Image
 import com.caganbicakci.travelguideapp.domain.model.TripPlanModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TripPlanViewModel
 import com.caganbicakci.travelguideapp.handler.ImageClickHandler
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.squareup.picasso.Picasso
 
 
@@ -42,7 +41,7 @@ class DetailFragment : Fragment(), ImageClickHandler {
             setVariable(BR.imageListAdapter, imageListAdapter)
 
             btnClose.setOnClickListener {
-                //finish()
+                activity?.onBackPressedDispatcher?.onBackPressed()
             }
 
             bookmarkBtn.setOnClickListener {
