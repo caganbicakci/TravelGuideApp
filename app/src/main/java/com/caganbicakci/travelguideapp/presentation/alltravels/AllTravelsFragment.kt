@@ -45,7 +45,7 @@ class AllTravelsFragment : Fragment(), TravelClickHandler {
 
     override fun travelItemClicked(travelModel: TravelModel) {
         findNavController().apply {
-            val action = AllTravelsFragmentDirections.actionAllTravelsFragmentToDetailActivity(travelModel)
+            val action = AllTravelsFragmentDirections.actionAllTravelsFragmentToDetailFragment(travelModel)
             navigate(action)
         }
     }

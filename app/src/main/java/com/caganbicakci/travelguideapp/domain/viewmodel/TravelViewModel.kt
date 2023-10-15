@@ -16,7 +16,7 @@ class TravelViewModel @Inject constructor(
 
     init {
         getAllTravels()
-        getAllTravels()
+        getAllCategories()
     }
 
     fun getAllTravels(): LiveData<List<TravelModel>> {

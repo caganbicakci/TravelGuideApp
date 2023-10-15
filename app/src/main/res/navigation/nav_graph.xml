@@ -11,8 +11,8 @@
         tools:layout="@layout/fragment_home"
         >
         <action
-            android:id="@+id/action_homeFragment_to_detailActivity"
-            app:destination="@id/detailActivity"
+            android:id="@+id/action_homeFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
             app:popUpToInclusive="false" />
         <argument
             android:name="travelModel"
@@ -24,8 +24,8 @@
         android:label="GuideFragment"
         tools:layout="@layout/fragment_guide">
         <action
-            android:id="@+id/action_guideFragment_to_detailActivity"
-            app:destination="@id/detailActivity" />
+            android:id="@+id/action_guideFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
         <action
             android:id="@+id/action_guideFragment_to_allTravelsFragment"
             app:destination="@id/allTravelsFragment" />
@@ -36,8 +36,8 @@
         android:label="TripFragment"
         tools:layout="@layout/fragment_trip">
         <action
-            android:id="@+id/action_tripFragment_to_detailActivity"
-            app:destination="@id/detailActivity" />
+            android:id="@+id/action_tripFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -45,8 +45,8 @@
         android:label="SearchFragment"
         tools:layout="@layout/fragment_search">
         <action
-            android:id="@+id/action_searchFragment_to_detailActivity"
-            app:destination="@id/detailActivity" />
+            android:id="@+id/action_searchFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
     <activity
         android:id="@+id/detailActivity"
@@ -62,7 +62,15 @@
         android:name="com.caganbicakci.travelguideapp.presentation.alltravels.AllTravelsFragment"
         android:label="AllTravelsFragment" >
         <action
-            android:id="@+id/action_allTravelsFragment_to_detailActivity"
-            app:destination="@id/detailActivity" />
+            android:id="@+id/action_allTravelsFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.caganbicakci.travelguideapp.presentation.detail.DetailFragment"
+        android:label="DetailFragment" >
+        <argument
+            android:name="travelModel"
+            app:argType="com.caganbicakci.travelguideapp.domain.model.TravelModel" />
     </fragment>
 </navigation>

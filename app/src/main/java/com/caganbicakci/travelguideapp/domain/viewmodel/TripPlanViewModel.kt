@@ -9,6 +9,7 @@ import com.caganbicakci.travelguideapp.domain.model.TripPlanModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import javax.inject.Singleton
 
 @HiltViewModel
 class TripPlanViewModel @Inject constructor(private val tripPlanRepository: TripPlanRepository) :

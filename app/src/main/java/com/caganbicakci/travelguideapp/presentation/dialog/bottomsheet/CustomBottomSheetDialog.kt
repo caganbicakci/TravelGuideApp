@@ -1,7 +1,6 @@
 package com.caganbicakci.travelguideapp.presentation.dialog.bottomsheet
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,15 +9,11 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.RecyclerView
-import com.caganbicakci.travelguideapp.BR
 import com.caganbicakci.travelguideapp.R
 import com.caganbicakci.travelguideapp.domain.model.TripPlanModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TripPlanViewModel
-import com.caganbicakci.travelguideapp.presentation.tripplan.TripPlansAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class CustomBottomSheetDialog () : BottomSheetDialogFragment() {

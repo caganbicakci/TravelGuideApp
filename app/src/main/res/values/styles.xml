@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto">
+<resources xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
 
     <style name="categoryTitleStyle">
         <item name="android:fontFamily">@font/source_sans_pro</item>
@@ -80,6 +80,11 @@
 
     <style name="detailTitleTextStyleMedium" parent="detailTextStyle">
         <item name="android:textSize">@dimen/_12ssp</item>
+    </style>
+
+    <style name="Widget.Theme.TravelGuideApp.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
     </style>
 
 </resources>

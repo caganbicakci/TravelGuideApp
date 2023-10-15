@@ -70,7 +70,7 @@ class SearchFragment : Fragment(), TravelClickHandler, BookmarkClickHandler {
 
     override fun travelItemClicked(travelModel: TravelModel) {
         findNavController().apply {
-            val action = SearchFragmentDirections.actionSearchFragmentToDetailActivity(travelModel)
+            val action = SearchFragmentDirections.actionSearchFragmentToDetailFragment(travelModel)
             navigate(action)
         }
     }

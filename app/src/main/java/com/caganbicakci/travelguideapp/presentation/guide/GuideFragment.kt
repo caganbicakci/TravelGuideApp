@@ -84,7 +84,7 @@ class GuideFragment : Fragment(), TravelClickHandler, CategoryClickHandler, Book
 
     override fun travelItemClicked(travelModel: TravelModel) {
         findNavController().apply {
-            val action = GuideFragmentDirections.actionGuideFragmentToDetailActivity(travelModel)
+            val action = GuideFragmentDirections.actionGuideFragmentToDetailFragment(travelModel)
             navigate(action)
         }
     }

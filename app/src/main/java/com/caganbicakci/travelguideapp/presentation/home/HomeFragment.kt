@@ -21,7 +21,6 @@ class HomeFragment : Fragment(), TravelClickHandler {
 
     private lateinit var homeFragmentBinding: FragmentHomeBinding
     private val clickHandler = this
-
     private val travelViewModel: TravelViewModel by viewModels()
 
     override fun onCreateView(
@@ -35,7 +34,7 @@ class HomeFragment : Fragment(), TravelClickHandler {
 
     override fun travelItemClicked(travelModel: TravelModel) {
         findNavController().apply {
-            val action = HomeFragmentDirections.actionHomeFragmentToDetailActivity(travelModel)
+            val action = HomeFragmentDirections.actionHomeFragmentToDetailFragment(travelModel)
             navigate(action)
         }
     }
