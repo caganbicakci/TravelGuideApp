@@ -19,6 +19,7 @@ import com.caganbicakci.travelguideapp.handler.TravelClickHandler
 import com.caganbicakci.travelguideapp.utils.Constants
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
 @AndroidEntryPoint
 class SearchFragment : Fragment(), TravelClickHandler, BookmarkClickHandler {
@@ -54,8 +55,12 @@ class SearchFragment : Fragment(), TravelClickHandler, BookmarkClickHandler {
                 setVariable(BR.nearByAttractionsAdapter, nearByAttractionsAdapter)
 
                 searchBar.setEndIconOnClickListener {
-                    val searchResult =
-                        travelList.filter { it.title.contains(searchBar.editText?.text.toString()) }
+                    val searchText = searchBar.editText?.text.toString().lowercase()
+                    val searchResult = travelList.filter {
+                            it.country.lowercase().contains(searchText) ||
+                                it.city.lowercase().contains(searchText) ||
+                                    it.description.lowercase().contains(searchText)
+                        }
 
                     SearchDialog.showSearchResultDialog(
                         context = requireContext(),

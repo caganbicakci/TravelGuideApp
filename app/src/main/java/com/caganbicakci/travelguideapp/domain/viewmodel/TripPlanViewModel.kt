@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.caganbicakci.travelguideapp.data.localdb.TripPlanRepository
+import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.model.TripPlanModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -16,6 +17,9 @@ class TripPlanViewModel @Inject constructor(private val tripPlanRepository: Trip
 
     private var _allTripPlans = MutableLiveData<MutableList<TripPlanModel>>()
     val allTripPlans : LiveData<MutableList<TripPlanModel>> = _allTripPlans
+
+    private var _allBookmarks = MutableLiveData<MutableList<TripPlanModel>>()
+    val allBookmarks : LiveData<MutableList<TripPlanModel>> = _allBookmarks
 
     init {
         fetchTripPlanData()
