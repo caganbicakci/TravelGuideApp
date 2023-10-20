@@ -8,6 +8,7 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.PUT
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -23,5 +24,8 @@ interface ApiService {
         @Path("id") string: String,
         @Field("bookmark") bookmark: Boolean
     ): Call<TravelModel>
+
+    @GET("Travels")
+    fun getBookmarkedTravels(@Query("isBookmark") isBookmark: Boolean) : Call<List<TravelModel>>
 
 }

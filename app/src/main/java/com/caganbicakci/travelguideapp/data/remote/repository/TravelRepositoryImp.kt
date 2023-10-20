@@ -19,4 +19,8 @@ class TravelRepositoryImp(private val apiService: ApiService) : TravelRepository
         apiService.addOrRemoveTravelToBookmark(id, bookmark)
     }
 
+    override fun getBookmarkedTripPlans(): Call<List<TravelModel>> {
+        return apiService.getBookmarkedTravels(false)
+    }
+
 }

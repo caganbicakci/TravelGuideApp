@@ -24,6 +24,9 @@ class Constants {
         const val HOTELS = 2
         const val TRANSPORTATIONS = 3
 
+        const val TRIPS = 0
+        const val BOOKMARKS = 1
+
         const val FLIGHTS_QUERY = "flight"
         const val HOTELS_QUERY = "hotel"
         const val TRANSPORTATIONS_QUERY = "transportation"

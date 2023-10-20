@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.caganbicakci.travelguideapp.domain.model.CategoryModel
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
+import com.caganbicakci.travelguideapp.domain.model.TripPlanModel
 import com.caganbicakci.travelguideapp.domain.repository.TravelRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
@@ -24,9 +25,13 @@ class TravelViewModel @Inject constructor(
     val allTravels: LiveData<List<TravelModel>> = _allTravels
     val allCategories: LiveData<List<CategoryModel>> = _allCategories
 
+    private var _allBookmarks = MutableLiveData<List<TravelModel>>()
+    val allBookmarks : MutableLiveData<List<TravelModel>> = _allBookmarks
+
     init {
         getAllTravels()
         getAllCategories()
+        getBookmarkedTripPlans()
     }
 
     private fun getAllTravels() {
@@ -39,14 +44,14 @@ class TravelViewModel @Inject constructor(
             }
 
             override fun onFailure(call: Call<List<TravelModel>>, t: Throwable) {
-                Log.e("TRAVELS ERROR", t.message.toString())
+                t.localizedMessage?.let { Log.e("TRAVELS ERROR", it) }
             }
         })
     }
 
     private fun getAllCategories() {
         travelRepository.apply {
-            travelRepository.getAllCategories().enqueue(object : Callback<List<CategoryModel>> {
+            getAllCategories().enqueue(object : Callback<List<CategoryModel>> {
                 override fun onResponse(
                     call: Call<List<CategoryModel>>,
                     response: Response<List<CategoryModel>>
@@ -55,7 +60,7 @@ class TravelViewModel @Inject constructor(
                 }
 
                 override fun onFailure(call: Call<List<CategoryModel>>, t: Throwable) {
-                    Log.e("CATEGORIES ERROR", t.message.toString())
+                    t.localizedMessage?.let { Log.e("CATEGORIES ERROR", it) }
                 }
 
             })
@@ -65,6 +70,23 @@ class TravelViewModel @Inject constructor(
     fun changeBookmarkStatus(id: String, isBookmark: Boolean){
         travelRepository.apply {
             changeBookmark(id,isBookmark)
+        }
+    }
+
+    private fun getBookmarkedTripPlans(){
+        travelRepository.apply {
+            getBookmarkedTripPlans().enqueue(object : Callback<List<TravelModel>>{
+                override fun onResponse(
+                    call: Call<List<TravelModel>>,
+                    response: Response<List<TravelModel>>
+                ) {
+                    _allBookmarks.value = response.body()
+                }
+
+                override fun onFailure(call: Call<List<TravelModel>>, t: Throwable) {
+                    t.localizedMessage?.let { Log.e("BOOKMARK ERROR", it) }
+                }
+            })
         }
     }
 

@@ -6,7 +6,7 @@ import retrofit2.Call
 
 interface TravelRepository {
     fun getAllTravels(): Call<List<TravelModel>>
-
     fun getAllCategories(): Call<List<CategoryModel>>
     fun changeBookmark(id: String, bookmark: Boolean)
+    fun getBookmarkedTripPlans(): Call<List<TravelModel>>
 }

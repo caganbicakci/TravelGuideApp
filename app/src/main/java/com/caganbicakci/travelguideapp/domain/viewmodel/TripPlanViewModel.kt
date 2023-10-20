@@ -18,9 +18,6 @@ class TripPlanViewModel @Inject constructor(private val tripPlanRepository: Trip
     private var _allTripPlans = MutableLiveData<MutableList<TripPlanModel>>()
     val allTripPlans : LiveData<MutableList<TripPlanModel>> = _allTripPlans
 
-    private var _allBookmarks = MutableLiveData<MutableList<TripPlanModel>>()
-    val allBookmarks : LiveData<MutableList<TripPlanModel>> = _allBookmarks
-
     init {
         fetchTripPlanData()
     }

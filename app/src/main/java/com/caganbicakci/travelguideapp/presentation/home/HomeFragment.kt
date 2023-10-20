@@ -70,18 +70,17 @@ class HomeFragment : Fragment(), TravelClickHandler {
 
     }
 
-    fun getFlights(dealsList: List<TravelModel>) {
+    private fun getFlights(dealsList: List<TravelModel>) {
         val dealsListByCategory = dealsList.filter { it.category == Constants.FLIGHTS_QUERY }
         setDealsListAdapter(dealsListByCategory)
     }
 
-    fun getHotels(dealsList: List<TravelModel>) {
+    private fun getHotels(dealsList: List<TravelModel>) {
         val dealsListByCategory = dealsList.filter { it.category == Constants.HOTELS_QUERY }
         setDealsListAdapter(dealsListByCategory)
-
     }
 
-    fun getTransportations(dealsList: List<TravelModel>) {
+    private fun getTransportations(dealsList: List<TravelModel>) {
         val dealsListByCategory =
             dealsList.filter { it.category == Constants.TRANSPORTATIONS_QUERY }
         setDealsListAdapter(dealsListByCategory)
