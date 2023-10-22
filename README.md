@@ -14,16 +14,14 @@ Kotlin ile geliştirdiğim Travel Guide App içinde farklı lokasyonlara ait gö
 ### Screenshots
 
 <p float="left">
-  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/3e2ed458-c27b-4993-862c-1244dc68771c" width="25%" height="25%"/>
-  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/c3347bdf-b380-4905-9a13-22d63dc22384" width="25%" height="25%"/>
-  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/549056fb-86a1-4b78-bd49-33ba3e1319e9" width="25%" height="25%"/>
-  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/2e10776c-2b01-49cb-9c92-019a61847d02" width="25%" height="25%"/>
+  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/3e2ed458-c27b-4993-862c-1244dc68771c" width="30%" height="30%"/>
+  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/c3347bdf-b380-4905-9a13-22d63dc22384" width="30%" height="30%"/>
+  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/2e10776c-2b01-49cb-9c92-019a61847d02" width="30%" height="30%"/>
 </p>
 
 <p float="left">
-  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/db7780f2-4184-4eb6-a5e2-083d88d27fcf" width="25%" height="25%"/>
-  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/ea8195cf-03bc-48cb-ab90-4229dde64faa" width="25%" height="25%"/>
-  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/32734596-3c53-493f-a0fd-35e4e2055940" width="25%" height="25%"/>
-  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/df536eff-b533-4d4b-b986-dc17871f3a64" width="25%" height="25%"/>
+  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/db7780f2-4184-4eb6-a5e2-083d88d27fcf" width="30%" height="30%"/>
+  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/32734596-3c53-493f-a0fd-35e4e2055940" width="30%" height="30%"/>
+  <img src="https://github.com/caganbicakci/TravelGuideApp/assets/44499663/df536eff-b533-4d4b-b986-dc17871f3a64" width="30%" height="30%"/>
 </p>
 
