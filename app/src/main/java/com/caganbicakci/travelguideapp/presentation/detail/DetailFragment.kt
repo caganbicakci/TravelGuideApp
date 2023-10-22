@@ -31,7 +31,7 @@ class DetailFragment : Fragment(), ImageClickHandler {
     ): View? {
         detailFragmentBinding = FragmentDetailBinding.inflate(inflater)
 
-        val args: DetailActivityArgs by navArgs()
+        val args: DetailFragmentArgs by navArgs()
         val travelImages = args.travelModel.images
         val imageListAdapter =
             TravelCardImagesAdapter(imageList = travelImages, clickHandler = clickHandler)

@@ -8,16 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.caganbicakci.travelguideapp.BR
 import com.caganbicakci.travelguideapp.databinding.FragmentGuideBinding
-import com.caganbicakci.travelguideapp.domain.dialog.SearchDialog
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
 import com.caganbicakci.travelguideapp.handler.BookmarkClickHandler
 import com.caganbicakci.travelguideapp.handler.CategoryClickHandler
 import com.caganbicakci.travelguideapp.handler.TravelClickHandler
+import com.caganbicakci.travelguideapp.presentation.dialog.search.SearchTravelDialog
 import com.caganbicakci.travelguideapp.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -56,15 +55,13 @@ class GuideFragment : Fragment(), TravelClickHandler, CategoryClickHandler, Book
                 setVariable(BR.topPickArticlesAdapter, topPickArticlesAdapter)
 
                 searchBar.setEndIconOnClickListener {
-                    val searchResult =
-                        travelList.filter { it.title.contains(searchBar.editText?.text.toString()) }
-
-                    SearchDialog.showSearchResultDialog(
-                        context = requireContext(),
-                        travelClickHandler = clickHandler,
-                        bookmarkClickHandler = clickHandler,
-                        searchResult = searchResult
-                    )
+                    val searchText = searchBar.editText?.text.toString().lowercase()
+                    val searchResult = travelList.filter {
+                        it.country.lowercase().contains(searchText) ||
+                                it.city.lowercase().contains(searchText) ||
+                                it.description.lowercase().contains(searchText)
+                    }
+                    showSearchDialog(searchResult)
                 }
 
                 tvSeeAll.setOnClickListener {
@@ -99,6 +96,12 @@ class GuideFragment : Fragment(), TravelClickHandler, CategoryClickHandler, Book
 
     override fun setBookmarkStatus(id: String, isBookmark: Boolean) {
         //TODO("Not yet implemented")
+    }
+
+    private fun showSearchDialog(searchResult: List<TravelModel>) {
+        childFragmentManager.let {
+            SearchTravelDialog(searchResult).show(it, "SearchTravelDialog")
+        }
     }
 
 }

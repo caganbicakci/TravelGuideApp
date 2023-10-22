@@ -8,18 +8,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.caganbicakci.travelguideapp.BR
-import com.caganbicakci.travelguideapp.R
-import com.caganbicakci.travelguideapp.databinding.DialogSearchResultBinding
 import com.caganbicakci.travelguideapp.databinding.FragmentSearchBinding
-import com.caganbicakci.travelguideapp.domain.dialog.SearchDialog
 import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
 import com.caganbicakci.travelguideapp.handler.BookmarkClickHandler
 import com.caganbicakci.travelguideapp.handler.TravelClickHandler
+import com.caganbicakci.travelguideapp.presentation.dialog.search.SearchTravelDialog
 import com.caganbicakci.travelguideapp.utils.Constants
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.Locale
 
 @AndroidEntryPoint
 class SearchFragment : Fragment(), TravelClickHandler, BookmarkClickHandler {
@@ -61,13 +57,7 @@ class SearchFragment : Fragment(), TravelClickHandler, BookmarkClickHandler {
                                 it.city.lowercase().contains(searchText) ||
                                     it.description.lowercase().contains(searchText)
                         }
-
-                    SearchDialog.showSearchResultDialog(
-                        context = requireContext(),
-                        travelClickHandler = clickHandler,
-                        bookmarkClickHandler =clickHandler,
-                        searchResult = searchResult
-                    )
+                    showSearchDialog(searchResult)
                 }
             }
         }
@@ -82,5 +72,11 @@ class SearchFragment : Fragment(), TravelClickHandler, BookmarkClickHandler {
 
     override fun setBookmarkStatus(id: String, isBookmark: Boolean) {
         travelViewModel.changeBookmarkStatus(id,isBookmark)
+    }
+
+    private fun showSearchDialog(searchResult: List<TravelModel>) {
+        childFragmentManager.let {
+            SearchTravelDialog(searchResult).show(it, "SearchTravelDialog")
+        }
     }
 }

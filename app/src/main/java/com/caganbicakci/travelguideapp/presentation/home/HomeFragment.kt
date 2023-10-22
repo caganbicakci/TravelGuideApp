@@ -14,6 +14,7 @@ import com.caganbicakci.travelguideapp.domain.model.TravelModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
 import com.caganbicakci.travelguideapp.handler.TravelClickHandler
 import com.caganbicakci.travelguideapp.utils.Constants
+import com.caganbicakci.travelguideapp.utils.DealsCategoryEnum
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -54,10 +55,10 @@ class HomeFragment : Fragment(), TravelClickHandler {
                     TabLayout.OnTabSelectedListener {
                     override fun onTabSelected(tab: TabLayout.Tab?) {
                         when (tab?.position) {
-                            Constants.ALL -> setDealsListAdapter(travelList)
-                            Constants.FLIGHTS -> getFlights(travelList)
-                            Constants.HOTELS -> getHotels(travelList)
-                            Constants.TRANSPORTATIONS -> getTransportations(travelList)
+                            DealsCategoryEnum.ALL.ordinal -> setDealsListAdapter(travelList)
+                            DealsCategoryEnum.FLIGHTS.ordinal -> getFlights(travelList)
+                            DealsCategoryEnum.HOTELS.ordinal -> getHotels(travelList)
+                            DealsCategoryEnum.TRANSPORTATIONS.ordinal -> getTransportations(travelList)
                         }
                     }
 

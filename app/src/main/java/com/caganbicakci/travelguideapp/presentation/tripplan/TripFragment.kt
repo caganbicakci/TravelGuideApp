@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.caganbicakci.travelguideapp.BR
 import com.caganbicakci.travelguideapp.databinding.FragmentTripBinding
+import com.caganbicakci.travelguideapp.utils.TripPlanEnum
 import com.caganbicakci.travelguideapp.domain.model.TripPlanModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TravelViewModel
 import com.caganbicakci.travelguideapp.domain.viewmodel.TripPlanViewModel
 import com.caganbicakci.travelguideapp.handler.TripPlanClickHandler
-import com.caganbicakci.travelguideapp.presentation.dialog.bottomsheet.CustomBottomSheetDialog
-import com.caganbicakci.travelguideapp.utils.Constants
+import com.caganbicakci.travelguideapp.presentation.dialog.addtripplan.AddTripPlanDialog
 import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,8 +48,8 @@ class TripFragment : Fragment(), TripPlanClickHandler {
             TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 when (tab?.position) {
-                    Constants.TRIPS -> setupRecyclerViewForTripPlans()
-                    Constants.BOOKMARKS -> setupRecyclerViewForBookmarks()
+                    TripPlanEnum.TRIPS.ordinal -> setupRecyclerViewForTripPlans()
+                    TripPlanEnum.BOOKMARKS.ordinal -> setupRecyclerViewForBookmarks()
                 }
             }
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
@@ -82,7 +82,7 @@ class TripFragment : Fragment(), TripPlanClickHandler {
 
     private fun showTripPlanDialog() {
         childFragmentManager.let {
-            CustomBottomSheetDialog().show(it, "BottomSheetFragment")
+            AddTripPlanDialog().show(it, "AddTripPlanDialog")
         }
     }
 
