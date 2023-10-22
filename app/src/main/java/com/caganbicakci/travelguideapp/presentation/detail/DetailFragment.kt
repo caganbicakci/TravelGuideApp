@@ -1,12 +1,10 @@
 package com.caganbicakci.travelguideapp.presentation.detail
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.navArgs
@@ -28,7 +26,7 @@ class DetailFragment : Fragment(), ImageClickHandler {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         detailFragmentBinding = FragmentDetailBinding.inflate(inflater)
 
         val args: DetailFragmentArgs by navArgs()
@@ -47,7 +45,7 @@ class DetailFragment : Fragment(), ImageClickHandler {
             bookmarkBtn.setOnClickListener {
                 val travelItem = args.travelModel
                 tripPlanViewModel.addTripPlan(TripPlanModel(0,travelItem.title, travelItem.city))
-                Log.i("VIEWMODEL",tripPlanViewModel.toString())
+                Log.i("VIEW MODEL",tripPlanViewModel.toString())
             }
         }
 
